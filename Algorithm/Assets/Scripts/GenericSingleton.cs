@@ -14,7 +14,7 @@ public class GenericSingleton<T> : MonoBehaviour where T : Component
             {
                 _instance = FindObjectOfType<T>();  //해당 타입 찾기
 
-                if (_instance == null)
+                if(_instance == null )
                 {
                     GameObject obj = new GameObject();  //객체 만들고
                     obj.name = typeof(T).Name;          //오브젝트 이름 설정
@@ -31,7 +31,7 @@ public class GenericSingleton<T> : MonoBehaviour where T : Component
             _instance = this as T;                                 //인스턴스는 이 클래스 -> class Singleton
             DontDestroyOnLoad(gameObject);                      //유니티에 파괴되지 않는 객체로 등록
         }
-        else if (_instance != this)
+        else if( _instance != this )
         {
             Destroy(gameObject);                                //해당 인스턴스가 존재하면 생성하자마자 파괴된다.
         }
