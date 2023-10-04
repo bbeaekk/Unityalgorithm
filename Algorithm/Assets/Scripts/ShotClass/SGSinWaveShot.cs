@@ -2,10 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SGNwayShot : SGBaseShot
+public class SGSinWaveShot : SGBaseShot
 {
     public int wayNum = 5;
     public float centerAngle = 180f;
+
+    public float waveRangeSize = 40f;
+    public float waveSpeed = 10f;
+    public bool waveInverse = false;
+
     public float betweenAngle = 10f;
     public float nextLineDelay = 0.1f;
 
@@ -49,7 +54,7 @@ public class SGNwayShot : SGBaseShot
 
                 float angle = SGUtil.GetShiftedAngle(i, baseAngle, betweenAngle);
 
-                ShotProjectile(projectile, projectileSpeed, angle);
+                ShotProjectile(projectile, projectileSpeed, angle , false , null , 0f , true , waveSpeed , waveRangeSize , waveInverse);
 
                 projectile.UpdateMove(-delayTimer);
 
